@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		D2423E7824CD94D6009DE58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7724CD94D6009DE58C /* AppDelegate.swift */; };
 		D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7924CD94D6009DE58C /* SceneDelegate.swift */; };
-		D2423E7C24CD94D6009DE58C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7B24CD94D6009DE58C /* FirstViewController.swift */; };
-		D2423E7E24CD94D6009DE58C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7D24CD94D6009DE58C /* SecondViewController.swift */; };
 		D2423E8124CD94D6009DE58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2423E7F24CD94D6009DE58C /* Main.storyboard */; };
 		D2423E8424CD94D6009DE58C /* UIListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2423E8224CD94D6009DE58C /* UIListApp.xcdatamodeld */; };
 		D2423E8624CD94D8009DE58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2423E8524CD94D8009DE58C /* Assets.xcassets */; };
 		D2423E8924CD94D8009DE58C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2423E8724CD94D8009DE58C /* LaunchScreen.storyboard */; };
 		D2423E9424CD94D8009DE58C /* UIListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E9324CD94D8009DE58C /* UIListAppTests.swift */; };
 		D2423E9F24CD94D8009DE58C /* UIListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E9E24CD94D8009DE58C /* UIListAppUITests.swift */; };
+		D2423EB524CDB7CC009DE58C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EB424CDB7CC009DE58C /* MainTabBarController.swift */; };
+		D2423EB824CDB81D009DE58C /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EB724CDB81D009DE58C /* MainNavigationController.swift */; };
+		D2423EBB24CDB91D009DE58C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EBA24CDB91D009DE58C /* HomeViewController.swift */; };
+		D2423EC324CDB9C1009DE58C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EC224CDB9C1009DE58C /* SettingViewController.swift */; };
+		D2423ECA24CDD985009DE58C /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EC924CDD985009DE58C /* CustomLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +43,6 @@
 		D2423E7424CD94D6009DE58C /* UIListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2423E7724CD94D6009DE58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2423E7924CD94D6009DE58C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2423E7B24CD94D6009DE58C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D2423E7D24CD94D6009DE58C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D2423E8024CD94D6009DE58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2423E8324CD94D6009DE58C /* UIListApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UIListApp.xcdatamodel; sourceTree = "<group>"; };
 		D2423E8524CD94D8009DE58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +54,11 @@
 		D2423E9A24CD94D8009DE58C /* UIListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2423E9E24CD94D8009DE58C /* UIListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIListAppUITests.swift; sourceTree = "<group>"; };
 		D2423EA024CD94D8009DE58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2423EB424CDB7CC009DE58C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		D2423EB724CDB81D009DE58C /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		D2423EBA24CDB91D009DE58C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D2423EC224CDB9C1009DE58C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D2423EC924CDD985009DE58C /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +109,13 @@
 		D2423E7624CD94D6009DE58C /* UIListApp */ = {
 			isa = PBXGroup;
 			children = (
-				D2423E7724CD94D6009DE58C /* AppDelegate.swift */,
-				D2423E7924CD94D6009DE58C /* SceneDelegate.swift */,
-				D2423E7B24CD94D6009DE58C /* FirstViewController.swift */,
-				D2423E7D24CD94D6009DE58C /* SecondViewController.swift */,
+				D2423EB224CDB16E009DE58C /* AppRoot */,
+				D2423EB024CDB14E009DE58C /* View */,
+				D2423EAC24CDB069009DE58C /* Generic */,
+				D2423EAF24CDB100009DE58C /* Model */,
+				D2423E8A24CD94D8009DE58C /* Info.plist */,
 				D2423E7F24CD94D6009DE58C /* Main.storyboard */,
 				D2423E8524CD94D8009DE58C /* Assets.xcassets */,
-				D2423E8724CD94D8009DE58C /* LaunchScreen.storyboard */,
-				D2423E8A24CD94D8009DE58C /* Info.plist */,
 				D2423E8224CD94D6009DE58C /* UIListApp.xcdatamodeld */,
 			);
 			path = UIListApp;
@@ -132,6 +137,82 @@
 				D2423EA024CD94D8009DE58C /* Info.plist */,
 			);
 			path = UIListAppUITests;
+			sourceTree = "<group>";
+		};
+		D2423EAC24CDB069009DE58C /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		D2423EAF24CDB100009DE58C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D2423EB024CDB14E009DE58C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D2423ECC24CDDD2C009DE58C /* ViewController */,
+				D2423EB624CDB811009DE58C /* NavigationController */,
+				D2423EB324CDB79F009DE58C /* UITabBarController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D2423EB224CDB16E009DE58C /* AppRoot */ = {
+			isa = PBXGroup;
+			children = (
+				D2423E7724CD94D6009DE58C /* AppDelegate.swift */,
+				D2423E7924CD94D6009DE58C /* SceneDelegate.swift */,
+				D2423E8724CD94D8009DE58C /* LaunchScreen.storyboard */,
+			);
+			path = AppRoot;
+			sourceTree = "<group>";
+		};
+		D2423EB324CDB79F009DE58C /* UITabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				D2423EB424CDB7CC009DE58C /* MainTabBarController.swift */,
+			);
+			path = UITabBarController;
+			sourceTree = "<group>";
+		};
+		D2423EB624CDB811009DE58C /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				D2423EB724CDB81D009DE58C /* MainNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		D2423EC824CDD973009DE58C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2423EBA24CDB91D009DE58C /* HomeViewController.swift */,
+				D2423EC924CDD985009DE58C /* CustomLayout.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D2423ECB24CDDBE9009DE58C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D2423EC224CDB9C1009DE58C /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D2423ECC24CDDD2C009DE58C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2423EC824CDD973009DE58C /* Home */,
+				D2423ECB24CDDBE9009DE58C /* Setting */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +346,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2423E7E24CD94D6009DE58C /* SecondViewController.swift in Sources */,
-				D2423E7C24CD94D6009DE58C /* FirstViewController.swift in Sources */,
+				D2423EC324CDB9C1009DE58C /* SettingViewController.swift in Sources */,
+				D2423EB524CDB7CC009DE58C /* MainTabBarController.swift in Sources */,
+				D2423EBB24CDB91D009DE58C /* HomeViewController.swift in Sources */,
 				D2423E7824CD94D6009DE58C /* AppDelegate.swift in Sources */,
+				D2423EB824CDB81D009DE58C /* MainNavigationController.swift in Sources */,
 				D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */,
+				D2423ECA24CDD985009DE58C /* CustomLayout.swift in Sources */,
 				D2423E8424CD94D6009DE58C /* UIListApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -428,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -445,6 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FEM7S8W23Q;
 				INFOPLIST_FILE = UIListApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = susu.com.UIListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -463,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FEM7S8W23Q;
 				INFOPLIST_FILE = UIListApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,7 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = susu.com.UIListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
