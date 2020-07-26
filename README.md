@@ -1,2 +1,2 @@
-# UIListApp
-UIListApp
+# othello_swift
+othello_swift
