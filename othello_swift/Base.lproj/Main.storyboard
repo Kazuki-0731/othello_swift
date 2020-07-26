@@ -12,7 +12,7 @@
         <!--home-->
         <scene sceneID="exL-Nv-ITo">
             <objects>
-                <navigationController id="6hc-y3-yvh" customClass="MainNavigationController" customModule="UIListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="6hc-y3-yvh" customClass="MainNavigationController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="home" image="home" id="D4X-Km-67O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cOz-nw-3gq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -33,8 +33,7 @@
         <!--ホーム-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-                <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="UIListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,13 +75,14 @@
                         <outlet property="collectionView" destination="ynw-gC-9gT" id="C2P-Nr-Ivv"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="-400.44642857142856"/>
         </scene>
         <!--設定-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SettingViewController" customModule="UIListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SettingViewController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="UIListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -129,7 +129,7 @@
         <!--setting-->
         <scene sceneID="87Q-uv-7rj">
             <objects>
-                <navigationController id="BWH-6z-6rR" customClass="MainNavigationController" customModule="UIListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="BWH-6z-6rR" customClass="MainNavigationController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="setting" image="settings" id="O7D-Va-BtL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAR-H7-Kgn">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

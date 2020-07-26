@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  UIListApp
+//  othello_swift
 //
 //  Created by Kazuki on 2020/07/26.
 //  Copyright © 2020 susu. All rights reserved.
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "UIListApp")
+        let container = NSPersistentContainer(name: "othello_swift")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

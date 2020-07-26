@@ -1,6 +1,6 @@
 //
 //  CustomLayout.swift
-//  UIListApp
+//  othello_swift
 //
 //  Created by Kazuki on 2020/07/27.
 //  Copyright © 2020 susu. All rights reserved.
