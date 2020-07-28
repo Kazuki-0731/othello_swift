@@ -9,22 +9,30 @@
 import Foundation
 import UIKit
 
+/**
+ オセロを敷くためのレイアウト構成クラス
+ 以下を参考にしている
+ https://qiita.com/takehilo/items/d49069572c848df9258a
+ */
 class CustomLayout: UICollectionViewLayout {
     weak var delegate: CustomDelegate!
     var numColumns = 8
     var padding: CGFloat = 3
     var attributesArray = [UICollectionViewLayoutAttributes]()
+    
+    // 縦横の長さ
     var contentHeight: CGFloat = 0
-
     var contentWidth: CGFloat {
         guard let collectionView = collectionView else { return 0 }
         return collectionView.bounds.width
     }
 
+    // 1マスの大きさ設定
     override var collectionViewContentSize: CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
 
+    // セルの配置座標計算
     override func prepare() {
         guard attributesArray.isEmpty, let collectionView = collectionView else { return }
 
@@ -55,6 +63,7 @@ class CustomLayout: UICollectionViewLayout {
         }
     }
 
+    // 表示する要素のリスト
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes = [UICollectionViewLayoutAttributes]()
 
@@ -67,6 +76,7 @@ class CustomLayout: UICollectionViewLayout {
     }
 }
 
+//　CollectionViewLayoutに対して、大きさを外部から注入するためのprotocol
 protocol CustomDelegate: class {
     func collectionView(_ collectionView: UICollectionView, heightForItemAt indexPath: IndexPath) -> CGFloat
 }

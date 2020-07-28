@@ -16,10 +16,6 @@ class HomeViewController: UIViewController, CustomDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        self.title = "ホーム"
-//        let mainView = TextView(frame: self.view.bounds, text: "ホーム")
-//        mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.view.addSubview(mainView)
         
         collectionView.dataSource = self
         

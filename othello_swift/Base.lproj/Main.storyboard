@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,7 +15,7 @@
                 <navigationController id="6hc-y3-yvh" customClass="MainNavigationController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="home" image="home" id="D4X-Km-67O"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cOz-nw-3gq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -35,12 +35,15 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="HomeViewController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-gC-9gT">
-                                <rect key="frame" x="20" y="88" width="374" height="725"/>
+                                <rect key="frame" x="16" y="200" width="343" height="467"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="467" id="XeY-E4-cc3"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kAE-24-1ZY">
                                     <size key="itemSize" width="83" height="72"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -62,10 +65,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Wus-vP-ZHV"/>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="fIT-Rb-kXt"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ynw-gC-9gT" secondAttribute="bottom" id="hnj-aM-2Ax"/>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="sDK-xu-h7q"/>
+                            <constraint firstItem="ynw-gC-9gT" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="49" id="89y-oz-QvW"/>
+                            <constraint firstItem="ynw-gC-9gT" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="dGX-f8-wlc"/>
+                            <constraint firstItem="ynw-gC-9gT" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="lMj-xF-GO7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -84,11 +86,11 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SettingViewController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="設定画面(仮)" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="104.5" y="426.5" width="205.5" height="43"/>
+                                <rect key="frame" x="85" y="312" width="205" height="43"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <nil key="highlightedColor"/>
@@ -132,7 +134,7 @@
                 <navigationController id="BWH-6z-6rR" customClass="MainNavigationController" customModule="othello_swift" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="setting" image="settings" id="O7D-Va-BtL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DAR-H7-Kgn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
