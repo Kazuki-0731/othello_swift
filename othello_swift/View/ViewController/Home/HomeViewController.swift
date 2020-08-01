@@ -40,7 +40,58 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.backgroundColor = .black
         cell.frame.size.width = 38
         cell.frame.size.height = 38
+        
+        // 選択された箇所を青くする
+        let selectedBGView = UIView(frame: cell.frame)
+        selectedBGView.backgroundColor = .blue
+        cell.selectedBackgroundView = selectedBGView
 
         return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        // デフォルトではtrue
+        return true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        // デフォルトではtrue
+        return true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        return true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        print("Highlighted: \(indexPath)")
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        print("Unhighlighted: \(indexPath)")
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        print("Selected: \(indexPath)")
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        debugLog(self)
+        debugPrint("indexPath : \(indexPath)")
+        print("Deselected: \(indexPath)")
     }
 }

@@ -19,7 +19,6 @@ class CustomLayout: UICollectionViewLayout {
     var numColumns = 8
     var padding: CGFloat = 3
     var attributesArray = [UICollectionViewLayoutAttributes]()
-    
     // 縦横の長さ
     var contentHeight: CGFloat = 0
     var contentWidth: CGFloat {
@@ -75,6 +74,52 @@ class CustomLayout: UICollectionViewLayout {
         return visibleLayoutAttributes
     }
 }
+
+//extension CustomLayout: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        // デフォルトではtrue
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        // デフォルトではtrue
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        return true
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        print("Highlighted: \(indexPath)")
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        print("Unhighlighted: \(indexPath)")
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        print("Selected: \(indexPath)")
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        debugLog(self)
+//        debugPrint("indexPath : \(indexPath)")
+//        print("Deselected: \(indexPath)")
+//    }
+//}
 
 //　CollectionViewLayoutに対して、大きさを外部から注入するためのprotocol
 protocol CustomDelegate: class {
