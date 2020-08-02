@@ -20,8 +20,13 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
         super.viewDidLoad()
 
         // オセロのデータと通知
-        collectionView.dataSource = dataSource
-        collectionView.delegate = delegate
+        self.collectionView.dataSource = dataSource
+        self.collectionView.delegate = delegate
+        
+        // 盤面のセル
+        self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        // セルの複数選択を許可する
+        self.collectionView.allowsMultipleSelection = true
 
         // オセロ盤面のレイアウト
         let customLayout = OthelloBoardLayout()

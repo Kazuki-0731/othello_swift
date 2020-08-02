@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-typealias CollectionViewDataSource = UICollectionViewDataSource
-
-class OthelloBoardDataSource: NSObject, CollectionViewDataSource {
+class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
     
     override init() {
         super.init()
@@ -27,15 +25,16 @@ class OthelloBoardDataSource: NSObject, CollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .black
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+
+        cell.highlightView.backgroundColor = .green
         cell.frame.size.width = 38
         cell.frame.size.height = 38
         
         // 選択された箇所を青くする
-        let selectedBGView = UIView(frame: cell.frame)
-        selectedBGView.backgroundColor = .blue
-        cell.selectedBackgroundView = selectedBGView
+//        let selectedBGView = UIView(frame: cell.frame)
+//        selectedBGView.backgroundColor = .blue
+//        cell.selectedBackgroundView = selectedBGView
 
         return cell
     }
