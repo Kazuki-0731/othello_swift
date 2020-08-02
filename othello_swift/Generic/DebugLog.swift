@@ -1,6 +1,6 @@
 //
 //  DebugLog.swift
-//  othello_swift
+//  othelloSwift
 //
 //  Created by Kazuki on 2020/08/01.
 //  Copyright © 2020 susu. All rights reserved.

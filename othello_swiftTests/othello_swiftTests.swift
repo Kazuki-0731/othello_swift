@@ -1,15 +1,15 @@
 //
-//  othello_swiftTests.swift
-//  othello_swiftTests
+//  othelloSwiftTests.swift
+//  othelloSwiftTests
 //
 //  Created by Kazuki on 2020/07/26.
 //  Copyright © 2020 susu. All rights reserved.
 //
 
 import XCTest
-@testable import othello_swift
+@testable import othelloSwift
 
-class othello_swiftTests: XCTestCase {
+class othelloSwiftTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
