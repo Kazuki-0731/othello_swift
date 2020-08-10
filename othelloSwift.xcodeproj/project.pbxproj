@@ -15,6 +15,9 @@
 		D21C814424D700F4006CCADB /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21C814224D700F4006CCADB /* CollectionViewCell.xib */; };
 		D21C814824D70E61006CCADB /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814724D70E61006CCADB /* RectangleView.swift */; };
 		D21C814A24E16206006CCADB /* OthelloInital.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814924E16206006CCADB /* OthelloInital.swift */; };
+		D21C814D24E18C28006CCADB /* OthelloProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814C24E18C28006CCADB /* OthelloProtocol.swift */; };
+		D21C815024E18EC9006CCADB /* OthelloEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814F24E18EC9006CCADB /* OthelloEnum.swift */; };
+		D21C815224E19239006CCADB /* OthelloLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C815124E19239006CCADB /* OthelloLogic.swift */; };
 		D2423E7824CD94D6009DE58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7724CD94D6009DE58C /* AppDelegate.swift */; };
 		D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7924CD94D6009DE58C /* SceneDelegate.swift */; };
 		D2423E8124CD94D6009DE58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2423E7F24CD94D6009DE58C /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		D21C814224D700F4006CCADB /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		D21C814724D70E61006CCADB /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		D21C814924E16206006CCADB /* OthelloInital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloInital.swift; sourceTree = "<group>"; };
+		D21C814C24E18C28006CCADB /* OthelloProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloProtocol.swift; sourceTree = "<group>"; };
+		D21C814F24E18EC9006CCADB /* OthelloEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloEnum.swift; sourceTree = "<group>"; };
+		D21C815124E19239006CCADB /* OthelloLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloLogic.swift; sourceTree = "<group>"; };
 		D2423E7424CD94D6009DE58C /* othelloSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = othelloSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2423E7724CD94D6009DE58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2423E7924CD94D6009DE58C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 		D21C814524D7011D006CCADB /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				D21C814E24E18EBB006CCADB /* Emun */,
+				D21C814B24E18C0C006CCADB /* Logic */,
 				D21C813D24D6E193006CCADB /* Delegate */,
 				D21C813A24D6CAC0006CCADB /* DataSource */,
 				D21C813424D690F2006CCADB /* Layout */,
@@ -144,6 +152,23 @@
 				D21C814724D70E61006CCADB /* RectangleView.swift */,
 			);
 			path = CellView;
+			sourceTree = "<group>";
+		};
+		D21C814B24E18C0C006CCADB /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				D21C814C24E18C28006CCADB /* OthelloProtocol.swift */,
+				D21C815124E19239006CCADB /* OthelloLogic.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		D21C814E24E18EBB006CCADB /* Emun */ = {
+			isa = PBXGroup;
+			children = (
+				D21C814F24E18EC9006CCADB /* OthelloEnum.swift */,
+			);
+			path = Emun;
 			sourceTree = "<group>";
 		};
 		D2423E6B24CD94D6009DE58C = {
@@ -413,9 +438,11 @@
 			files = (
 				D2423EC324CDB9C1009DE58C /* SettingViewController.swift in Sources */,
 				D2423EB524CDB7CC009DE58C /* MainTabBarController.swift in Sources */,
+				D21C815024E18EC9006CCADB /* OthelloEnum.swift in Sources */,
 				D2423EBB24CDB91D009DE58C /* HomeViewController.swift in Sources */,
 				D2423E7824CD94D6009DE58C /* AppDelegate.swift in Sources */,
 				D2423EB824CDB81D009DE58C /* MainNavigationController.swift in Sources */,
+				D21C815224E19239006CCADB /* OthelloLogic.swift in Sources */,
 				D21C814024D6E1E9006CCADB /* OthelloBoardDelegate.swift in Sources */,
 				D21C813124D5725D006CCADB /* OthelloData.swift in Sources */,
 				D21C813324D578DB006CCADB /* DebugLog.swift in Sources */,
@@ -423,6 +450,7 @@
 				D21C814324D700F4006CCADB /* CollectionViewCell.swift in Sources */,
 				D21C814A24E16206006CCADB /* OthelloInital.swift in Sources */,
 				D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */,
+				D21C814D24E18C28006CCADB /* OthelloProtocol.swift in Sources */,
 				D2423ECA24CDD985009DE58C /* OthelloBoardLayout.swift in Sources */,
 				D2423E8424CD94D6009DE58C /* UIListApp.xcdatamodeld in Sources */,
 				D21C813C24D6CAD8006CCADB /* OthelloBoardDataSource.swift in Sources */,
