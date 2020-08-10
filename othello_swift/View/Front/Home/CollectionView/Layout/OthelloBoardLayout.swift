@@ -17,7 +17,7 @@ import UIKit
 class OthelloBoardLayout: UICollectionViewLayout {
     weak var delegate: OthelloBoardLayoutDelegate!
     var numColumns = 8
-    var padding: CGFloat = 3
+    var padding: CGFloat = 0
     var attributesArray = [UICollectionViewLayoutAttributes]()
     
     // 初期化

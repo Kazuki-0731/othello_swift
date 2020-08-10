@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
         // 盤面のセル
         self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         // セルの複数選択を許可する
-        self.collectionView.allowsMultipleSelection = true
+//        self.collectionView.allowsMultipleSelection = true
 
         // オセロ盤面のレイアウト
         let customLayout = OthelloBoardLayout()

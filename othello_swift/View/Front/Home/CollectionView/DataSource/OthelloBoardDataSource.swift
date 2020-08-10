@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+/// オセロ配置
+/// 01 02 03 04 05 06 07 08
+/// 09 10 11 12 13 14 15 16
+/// 17 18 19 20 21 22 23 24
+/// 25 26 27 28 29 30 31 32
+/// 33 34 35 36 37 38 39 40
+/// 41 42 43 44 45 46 47 48
+/// 49 50 51 52 53 54 55 56
+/// 57 58 59 60 61 62 63 64
+
 class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
     
     override init() {
@@ -24,18 +34,33 @@ class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-
         cell.highlightView.backgroundColor = .green
-        cell.frame.size.width = 38
-        cell.frame.size.height = 38
+//        cell.frame.size.width = 38
+//        cell.frame.size.height = 38
         
-        // 選択された箇所を青くする
-//        let selectedBGView = UIView(frame: cell.frame)
-//        selectedBGView.backgroundColor = .blue
-//        cell.selectedBackgroundView = selectedBGView
-
+        /// 初期盤面
+        if(OthelloData.sharedOthelloData.isStart){
+            print("indexPath : \(indexPath)")
+            /// オセロ配置
+            /// 00 01 02 03 04 05 06 07
+            /// 08 09 10 11 12 13 14 15
+            /// 16 17 18 19 20 21 22 23
+            /// 24 25 26 27 28 39 30 31
+            /// 32 33 34 35 36 37 38 39
+            /// 40 41 42 43 44 45 46 47
+            /// 48 49 50 51 52 53 54 55
+            /// 56 57 58 59 60 61 62 63
+            if(OthelloInital.init().blackArrangement.contains(indexPath.row)){
+                cell.highlightView.backgroundColor = .black
+            }
+            if(OthelloInital.init().whiteArrangement.contains(indexPath.row)){
+                cell.highlightView.backgroundColor = .white
+            }
+        }
+        
+        /// 
+        
         return cell
     }
 }

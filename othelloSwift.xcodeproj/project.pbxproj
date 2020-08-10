@@ -14,6 +14,7 @@
 		D21C814324D700F4006CCADB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814124D700F4006CCADB /* CollectionViewCell.swift */; };
 		D21C814424D700F4006CCADB /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D21C814224D700F4006CCADB /* CollectionViewCell.xib */; };
 		D21C814824D70E61006CCADB /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814724D70E61006CCADB /* RectangleView.swift */; };
+		D21C814A24E16206006CCADB /* OthelloInital.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C814924E16206006CCADB /* OthelloInital.swift */; };
 		D2423E7824CD94D6009DE58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7724CD94D6009DE58C /* AppDelegate.swift */; };
 		D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423E7924CD94D6009DE58C /* SceneDelegate.swift */; };
 		D2423E8124CD94D6009DE58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2423E7F24CD94D6009DE58C /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		D21C814124D700F4006CCADB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		D21C814224D700F4006CCADB /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		D21C814724D70E61006CCADB /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		D21C814924E16206006CCADB /* OthelloInital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloInital.swift; sourceTree = "<group>"; };
 		D2423E7424CD94D6009DE58C /* othelloSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = othelloSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2423E7724CD94D6009DE58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2423E7924CD94D6009DE58C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D21C813024D5725D006CCADB /* OthelloData.swift */,
+				D21C814924E16206006CCADB /* OthelloInital.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				D21C813324D578DB006CCADB /* DebugLog.swift in Sources */,
 				D21C814824D70E61006CCADB /* RectangleView.swift in Sources */,
 				D21C814324D700F4006CCADB /* CollectionViewCell.swift in Sources */,
+				D21C814A24E16206006CCADB /* OthelloInital.swift in Sources */,
 				D2423E7A24CD94D6009DE58C /* SceneDelegate.swift in Sources */,
 				D2423ECA24CDD985009DE58C /* OthelloBoardLayout.swift in Sources */,
 				D2423E8424CD94D6009DE58C /* UIListApp.xcdatamodeld in Sources */,
@@ -595,7 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FEM7S8W23Q;
+				DEVELOPMENT_TEAM = YSF85FGL65;
 				INFOPLIST_FILE = "$(SRCROOT)/othello_swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -603,7 +607,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = susu.com.othelloSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = kazuki.com.othelloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -615,14 +619,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FEM7S8W23Q;
+				DEVELOPMENT_TEAM = YSF85FGL65;
 				INFOPLIST_FILE = "$(SRCROOT)/othello_swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = susu.com.othelloSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = kazuki.com.othelloSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
