@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Azimuth{
+enum Azimuth : CaseIterable{
     case NORTHWEST
     case NORTH
     case NORTHEAST

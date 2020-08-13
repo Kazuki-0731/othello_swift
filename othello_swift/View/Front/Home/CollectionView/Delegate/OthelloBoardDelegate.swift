@@ -79,19 +79,49 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         debugPrint("indexPath : \(indexPath)")
         print("Selected: \(indexPath)")
         
-        let currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        var currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
 
         /// 先攻である場合
         /// ひっくり返せるセルなのか検索
         ///   + 上下左右左上右上左下右下ですでにオセロが置いてあるのか検索
         ///     + 挟めるのか？8回検索(func allocable())
-        let azimuth = OthelloLogic.allocable(cell:currentCell, current: indexPath.row)
-        if(azimuth.count != 0){
-            print("azimuth : \(azimuth[0])")
-            currentCell.highlightView.backgroundColor = .black
+        let azimuths = OthelloLogic.allocable(cell:currentCell, current: indexPath.row)
+        /// 隣に相手のオセロがある
+        if(azimuths.count != 0){
+            // 全方向検索
+            for direction in azimuths {
+                //壁まで検索
+                var searchIndex = indexPath.row
+                while(true){
+                    print("searchIndex : \(searchIndex)")
+                    //その方向に自分陣地がある
+                    if(OthelloData.shared.firstArray.contains(searchIndex)){
+                        var loop = indexPath.row
+                        // その方向すべてを自分の陣地にする
+                        while(loop == searchIndex) {
+                            // 自分の陣地更新
+                            OthelloData.shared.firstArray.append(loop)
+                            // 反転
+                            currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
+                            currentCell.highlightView.backgroundColor = .black
+                            loop = loop + OthelloLogic.searchOthello(direction: direction)
+                        }
+                        break
+                    }
+                    // 壁まで行ったらbreak
+                    if(OthelloInital.init().wallEdge.contains(searchIndex)){
+                        break
+                    }
+                    searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
+                }
+                if(OthelloData.shared.firstArray.contains(indexPath.row + OthelloLogic.searchOthello(direction: direction))){
+                    print("azimuth : \(direction)")
+                }
+            }
         }
         ///       + ひっくり返せるのであれば、方位に従っておく(Azimuth)
         ///       + ひっくり返す(black/white)
+        ///       + 黒白配列を更新
         ///   + 何も無かったらそのまま
         ///
         /// 後攻である場合
