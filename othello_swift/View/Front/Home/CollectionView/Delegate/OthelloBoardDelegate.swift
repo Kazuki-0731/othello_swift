@@ -24,33 +24,33 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
+        print("indexPath : \(indexPath)")
         // デフォルトではtrue
         return true
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
+        print("indexPath : \(indexPath)")
         // デフォルトではtrue
         return true
     }
 
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
+        print("indexPath : \(indexPath)")
         return true
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
+        print("indexPath : \(indexPath)")
         print("Highlighted: \(indexPath)")
     }
 
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
+        print("indexPath : \(indexPath)")
         print("Unhighlighted: \(indexPath)")
     }
     /// オセロ配置
@@ -76,8 +76,7 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// TODO:ここをオセロの先攻後攻で白黒切り替えるようにする
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
-        print("Selected: \(indexPath)")
+        print("indexPath : \(indexPath)")
         
         var currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
 
@@ -90,34 +89,93 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         if(azimuths.count != 0){
             // 全方向検索
             for direction in azimuths {
-                //壁まで検索
+                // 現在のオセロの位置
                 var searchIndex = indexPath.row
+                // 壁まで検索
                 while(true){
                     print("searchIndex : \(searchIndex)")
-                    //その方向に自分陣地がある
-                    if(OthelloData.shared.firstArray.contains(searchIndex)){
-                        var loop = indexPath.row
-                        // その方向すべてを自分の陣地にする
-                        while(loop == searchIndex) {
-                            // 自分の陣地更新
-                            OthelloData.shared.firstArray.append(loop)
-                            // 反転
-                            currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
-                            currentCell.highlightView.backgroundColor = .black
-                            loop = loop + OthelloLogic.searchOthello(direction: direction)
-                        }
-                        break
-                    }
-                    // 壁まで行ったらbreak
-                    if(OthelloInital.init().wallEdge.contains(searchIndex)){
-                        break
-                    }
                     searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
+                    //その方向に先攻の人の陣地がある
+                    if(OthelloData.isFirst){
+                        //その方向に先攻の人の陣地がある
+                        if(OthelloData.firstArray.contains(searchIndex)){
+                            var loop = indexPath.row
+                            // その方向すべてを自分の陣地にする
+                            while(loop != searchIndex) {
+                                // 色反転
+                                currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
+                                currentCell.highlightView.backgroundColor = .black
+                                // 自分の陣地更新
+                                if !OthelloData.firstArray.contains(loop) {
+                                    OthelloData.firstArray.append(loop)
+                                }
+                                // 他人陣地を更新
+                                if OthelloData.secondArray.contains(loop) {
+                                    OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
+                                }
+                                loop = loop + OthelloLogic.searchOthello(direction: direction)
+                            }
+                            // 自分の陣地更新
+                            if !OthelloData.firstArray.contains(loop) {
+                                OthelloData.firstArray.append(loop)
+                            }
+                            // 他人陣地を更新
+                            if OthelloData.secondArray.contains(loop) {
+                                OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
+                            }
+                            let first = OthelloData.firstArray
+                            print("first : \(first)")
+                            let second = OthelloData.secondArray
+                            print("second : \(second)")
+                        }
+                    } else {
+                        print("OthelloData.secondArray : \(OthelloData.secondArray)")
+                        //その方向に後攻の人の陣地がある
+                        if(OthelloData.secondArray.contains(searchIndex)){
+                            var loop = indexPath.row
+                            // その方向すべてを自分の陣地にする
+                            while(loop != searchIndex) {
+                                // 色反転
+                                currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
+                                currentCell.highlightView.backgroundColor = .white
+                                // 自分の陣地更新
+                                if !OthelloData.secondArray.contains(loop) {
+                                    OthelloData.secondArray.append(loop)
+                                }
+                                // 他人陣地を更新
+                                if OthelloData.firstArray.contains(loop) {
+                                    OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
+                                }
+                                loop = loop + OthelloLogic.searchOthello(direction: direction)
+                            }
+                            // 自分の陣地更新
+                            if !OthelloData.secondArray.contains(loop) {
+                                OthelloData.secondArray.append(loop)
+                            }
+                            // 他人陣地を更新
+                            if OthelloData.firstArray.contains(loop) {
+                                OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
+                            }
+                            let first = OthelloData.firstArray
+                            print("first : \(first)")
+                            let second = OthelloData.secondArray
+                            print("second : \(second)")
+                        }
+                    }
+                    print("searchIndex: \(searchIndex)")
+                    // 壁まで行ったらbreak
+                    if(OthelloInital.wallEdge.contains(searchIndex)){
+                        break
+                    } else if (searchIndex < 0 || searchIndex > 63){
+                        break
+                    }
                 }
-                if(OthelloData.shared.firstArray.contains(indexPath.row + OthelloLogic.searchOthello(direction: direction))){
+                if(OthelloData.firstArray.contains(indexPath.row + OthelloLogic.searchOthello(direction: direction))){
                     print("azimuth : \(direction)")
                 }
             }
+            //　先攻後攻を交代
+            OthelloData.reverseTurn()
         }
         ///       + ひっくり返せるのであれば、方位に従っておく(Azimuth)
         ///       + ひっくり返す(black/white)
@@ -131,7 +189,14 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     /// Cellの選択が解除された時
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         debugLog(self)
-        debugPrint("indexPath : \(indexPath)")
         print("Deselected: \(indexPath)")
+    }
+}
+
+extension Array where Element: Equatable {
+    mutating func remove(value: Element) {
+        if let i = self.firstIndex(of: value) {
+            self.remove(at: i)
+        }
     }
 }

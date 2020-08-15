@@ -27,15 +27,12 @@ struct OthelloInital {
     /// 南東:+9
     /// 西:+1
     /// 東:-1
-    let blackArrangement = [27, 36]
-    let whiteArrangement = [28, 35]
+    static let blackArrangement = [27, 36]
+    static let whiteArrangement = [28, 35]
     /// 全方位検索用
-    let northwestWallEdge = [40, 32, 24, 16, 8, 0, 1, 2, 3 ,4 ,5]
-    let northWallEdge = [0, 1, 2, 3 ,4 ,5, 6, 7]
-    let northeastWallEdge = [2, 3 ,4 ,5, 6, 7, 15, 23, 31, 39, 47]
-    let westWallEdge = [0, 8, 16, 24, 32, 40, 48, 56]
-    let eastWallEdge = [7, 15, 23, 31, 39, 47, 55, 63]
-    let wallEdge = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,15 ,16 ,23 ,24 ,31 ,32 ,39 ,40 ,47 ,48 ,55 ,56, 63]
+    static let wallEdge = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,15 ,16 ,23 ,24 ,31 ,32 ,39 ,40 ,47 ,48 ,55 ,56, 63]
+    /// 反転用配列
+    var reverseOthello = [String]()
 
     /// オセロ配列(2次元配列)
     /// 00 01 02 03 04 05 06 07

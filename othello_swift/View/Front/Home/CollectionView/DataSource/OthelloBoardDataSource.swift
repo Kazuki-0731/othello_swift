@@ -49,10 +49,12 @@ class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
         /// 初期盤面
         if(OthelloData.shared.isStart){
             print("indexPath : \(indexPath)")
-            if(OthelloInital.init().blackArrangement.contains(indexPath.row)){
+            if(OthelloInital.blackArrangement.contains(indexPath.row)){
                 cell.highlightView.backgroundColor = .black
-            } else if(OthelloInital.init().whiteArrangement.contains(indexPath.row)){
+                OthelloData.firstArray = OthelloInital.blackArrangement
+            } else if(OthelloInital.whiteArrangement.contains(indexPath.row)){
                 cell.highlightView.backgroundColor = .white
+                OthelloData.secondArray = OthelloInital.whiteArrangement
             }
         }
         
