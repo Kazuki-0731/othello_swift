@@ -19,6 +19,7 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.selectedFrameView.isHidden = false
         self.highlightView.backgroundColor = .green
+        self.highlightView.layer.cornerRadius = 20
     }
 
     override func prepareForReuse() {

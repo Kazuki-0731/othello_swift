@@ -16,7 +16,7 @@ import UIKit
  */
 class OthelloBoardLayout: UICollectionViewLayout {
     weak var delegate: OthelloBoardLayoutDelegate!
-    var numColumns = 8
+    var numColumns = 10
     var padding: CGFloat = 0
     var attributesArray = [UICollectionViewLayoutAttributes]()
     

@@ -12,6 +12,7 @@ import UIKit
  
 class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var initiative: UILabel!
     
     var dataSource:OthelloBoardDataSource = OthelloBoardDataSource()
     var delegate:OthelloBoardDelegate = OthelloBoardDelegate()
@@ -19,14 +20,15 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 外部からのアクセス許可
+        delegate.homeView = self
+        
         // オセロのデータと通知
         self.collectionView.dataSource = dataSource
         self.collectionView.delegate = delegate
         
         // 盤面のセル
         self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
-        // セルの複数選択を許可する
-//        self.collectionView.allowsMultipleSelection = true
 
         // オセロ盤面のレイアウト
         let customLayout = OthelloBoardLayout()

@@ -33,10 +33,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kLM-R1-XSr" userLabel="HightView">
                                 <rect key="frame" x="1" y="1" width="98" height="98"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kLM-R1-XSr" firstAttribute="leading" secondItem="9uZ-zh-4QY" secondAttribute="leading" constant="1" id="46j-VF-sQT"/>
                             <constraint firstItem="fyb-us-BnT" firstAttribute="top" secondItem="9uZ-zh-4QY" secondAttribute="top" id="XgY-zl-im8"/>

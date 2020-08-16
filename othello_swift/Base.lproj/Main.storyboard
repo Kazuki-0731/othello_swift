@@ -39,10 +39,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-gC-9gT">
-                                <rect key="frame" x="16" y="200" width="343" height="467"/>
+                                <rect key="frame" x="-20" y="200" width="415" height="418"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="467" id="XeY-E4-cc3"/>
+                                    <constraint firstAttribute="height" constant="418" id="XeY-E4-cc3"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mN2-4S-cBN">
                                     <size key="itemSize" width="128" height="128"/>
@@ -66,24 +66,34 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="249-0N-u2h"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="先攻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZF-b4-ITm">
+                                <rect key="frame" x="0.0" y="58" width="375" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="49" id="89y-oz-QvW"/>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="dGX-f8-wlc"/>
-                            <constraint firstItem="ynw-gC-9gT" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="lMj-xF-GO7"/>
+                            <constraint firstItem="6ZF-b4-ITm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="14" id="6qC-fx-O4o"/>
+                            <constraint firstItem="ynw-gC-9gT" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="89y-oz-QvW"/>
+                            <constraint firstAttribute="trailing" secondItem="6ZF-b4-ITm" secondAttribute="trailing" id="W3Z-zL-Aua"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ynw-gC-9gT" secondAttribute="leading" constant="36" id="dGX-f8-wlc"/>
+                            <constraint firstItem="ynw-gC-9gT" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" constant="36" id="lMj-xF-GO7"/>
+                            <constraint firstItem="6ZF-b4-ITm" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="x5g-4m-g5k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="home" image="home" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" title="ホーム" id="QpD-Nq-ZJl"/>
                     <connections>
+                        <outlet property="Initiative" destination="6ZF-b4-ITm" id="oY7-hd-C9a"/>
                         <outlet property="collectionView" destination="ynw-gC-9gT" id="LoA-yr-BHQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.826086956522" y="-400.44642857142856"/>
+            <point key="canvasLocation" x="1746.4000000000001" y="-400.74962518740631"/>
         </scene>
         <!--設定-->
         <scene sceneID="wg7-f3-ORb">

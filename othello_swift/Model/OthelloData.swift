@@ -20,7 +20,7 @@ class OthelloData {
     ///int 点数の重さ
     ///Bool ゲーム開始フラグ
     var isStart : Bool = true
-    
+
     static func reverseTurn(){
         OthelloData.isFirst = !OthelloData.isFirst
     }

@@ -14,6 +14,8 @@ import UIKit
  */
 
 class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
+    weak var homeView: HomeViewController?
+    
     override init() {
         super.init()
     }
@@ -22,46 +24,17 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        debugLog(self)
-        print("indexPath : \(indexPath)")
-        // デフォルトではtrue
-        return true
-    }
-
-    func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-        debugLog(self)
-        print("indexPath : \(indexPath)")
-        // デフォルトではtrue
-        return true
-    }
-
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        debugLog(self)
-        print("indexPath : \(indexPath)")
-        return true
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        debugLog(self)
-        print("indexPath : \(indexPath)")
-        print("Highlighted: \(indexPath)")
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        debugLog(self)
-        print("indexPath : \(indexPath)")
-        print("Unhighlighted: \(indexPath)")
-    }
     /// オセロ配置
-    /// 00 01 02 03 04 05 06 07
-    /// 08 09 10 11 12 13 14 15
-    /// 16 17 18 19 20 21 22 23
-    /// 24 25 26 27 28 29 30 31
-    /// 32 33 34 35 36 37 38 39
-    /// 40 41 42 43 44 45 46 47
-    /// 48 49 50 51 52 53 54 55
-    /// 56 57 58 59 60 61 62 63
+    /// 00 01 02 03 04 05 06 07 08 09
+    /// 10 11 12 13 14 15 16 17 18 19
+    /// 20 21 22 23 24 25 26 27 28 29
+    /// 30 31 32 33 34 35 36 37 38 39
+    /// 40 41 42 43 44 45 46 47 48 49
+    /// 50 51 52 53 54 55 56 57 58 59
+    /// 60 61 62 63 64 65 66 67 68 69
+    /// 70 71 72 73 74 75 76 77 78 79
+    /// 80 81 82 83 84 85 86 87 88 89
+    /// 90 91 92 93 94 95 96 97 98 99
     /// 上下左右左上右上左下右下の処理(allocable)
     /// 北西:-7
     /// 北:-8
@@ -75,15 +48,9 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     /// Cellが選択された時
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// TODO:ここをオセロの先攻後攻で白黒切り替えるようにする
-        debugLog(self)
-        print("indexPath : \(indexPath)")
         
         var currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-
-        /// 先攻である場合
-        /// ひっくり返せるセルなのか検索
-        ///   + 上下左右左上右上左下右下ですでにオセロが置いてあるのか検索
-        ///     + 挟めるのか？8回検索(func allocable())
+        /// 上下左右左上右上左下右下で挟めるのか？8回検索(func allocable())
         let azimuths = OthelloLogic.allocable(cell:currentCell, current: indexPath.row)
         /// 隣に相手のオセロがある
         if(azimuths.count != 0){
@@ -93,11 +60,10 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                 var searchIndex = indexPath.row
                 // 壁まで検索
                 while(true){
-                    print("searchIndex : \(searchIndex)")
                     searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
                     //その方向に先攻の人の陣地がある
                     if(OthelloData.isFirst){
-                        //その方向に先攻の人の陣地がある
+                        //その方向に自分の陣地がある
                         if(OthelloData.firstArray.contains(searchIndex)){
                             var loop = indexPath.row
                             // その方向すべてを自分の陣地にする
@@ -123,13 +89,9 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                             if OthelloData.secondArray.contains(loop) {
                                 OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
                             }
-                            let first = OthelloData.firstArray
-                            print("first : \(first)")
-                            let second = OthelloData.secondArray
-                            print("second : \(second)")
+                            break
                         }
                     } else {
-                        print("OthelloData.secondArray : \(OthelloData.secondArray)")
                         //その方向に後攻の人の陣地がある
                         if(OthelloData.secondArray.contains(searchIndex)){
                             var loop = indexPath.row
@@ -156,47 +118,27 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                             if OthelloData.firstArray.contains(loop) {
                                 OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
                             }
-                            let first = OthelloData.firstArray
-                            print("first : \(first)")
-                            let second = OthelloData.secondArray
-                            print("second : \(second)")
+                            break
                         }
                     }
                     print("searchIndex: \(searchIndex)")
                     // 壁まで行ったらbreak
                     if(OthelloInital.wallEdge.contains(searchIndex)){
                         break
-                    } else if (searchIndex < 0 || searchIndex > 63){
+                    } else if (searchIndex < 0 || searchIndex > 99){
                         break
                     }
-                }
-                if(OthelloData.firstArray.contains(indexPath.row + OthelloLogic.searchOthello(direction: direction))){
-                    print("azimuth : \(direction)")
                 }
             }
             //　先攻後攻を交代
             OthelloData.reverseTurn()
+            homeView?.initiative.text = OthelloData.isFirst ? "先攻" : "後攻"
         }
-        ///       + ひっくり返せるのであれば、方位に従っておく(Azimuth)
-        ///       + ひっくり返す(black/white)
-        ///       + 黒白配列を更新
-        ///   + 何も無かったらそのまま
-        ///
-        /// 後攻である場合
-        /// 上記先攻である場合の処理と同じ
     }
 
     /// Cellの選択が解除された時
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         debugLog(self)
         print("Deselected: \(indexPath)")
-    }
-}
-
-extension Array where Element: Equatable {
-    mutating func remove(value: Element) {
-        if let i = self.firstIndex(of: value) {
-            self.remove(at: i)
-        }
     }
 }
