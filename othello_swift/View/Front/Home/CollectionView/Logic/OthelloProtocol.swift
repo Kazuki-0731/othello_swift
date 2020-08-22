@@ -9,5 +9,8 @@
 import Foundation
 
 protocol OthelloProtocol {
+    /// 配置できる場所を返す
     static func allocable(cell:CollectionViewCell, current: Int) -> [Azimuth]
+    
+    /// 
 }
