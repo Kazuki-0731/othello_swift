@@ -6,13 +6,12 @@
 //  Copyright © 2020 susu. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import SVGKit
 
 /**
  *盤面をタッチされた時のイベントを受信するクラス
  */
-
 class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     weak var homeView: HomeViewController?
     
@@ -53,10 +52,10 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         
         var currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         /// 上下左右左上右上左下右下で挟めるのか？8回検索(func allocable())
-        let azimuths = OthelloLogic.allocable(cell:currentCell, current: indexPath.row)
+        let azimuths = OthelloLogic.init().allocable(cell:currentCell, current: indexPath.row)
         /// 隣に相手のオセロがある
         if(azimuths.count != 0){
-            // 全方向検索
+            // 置ける方向分検索
             for direction in azimuths {
                 // 現在のオセロの位置
                 var searchIndex = indexPath.row
@@ -127,14 +126,22 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                     // 壁まで行ったらbreak
                     if(OthelloInital.wallEdge.contains(searchIndex)){
                         break
-                    } else if (searchIndex < 0 || searchIndex > 99){
-                        break
                     }
                 }
             }
             //　先攻後攻を交代
             OthelloData.reverseTurn()
-            homeView?.initiative.text = OthelloData.isFirst ? "先攻" : "後攻"
+            let arrow = OthelloData.isFirst ? "right_arrow" : "left_arrow"
+            guard let svgImage = SVGKImage(named: arrow) else {
+                return
+            }
+            svgImage.size = homeView!.initiative.frame.size
+            homeView?.initiative.image = svgImage.uiImage
+
+            // 点数表示
+            homeView?.firstPoint.text = String(format: "%02d", OthelloData.firstArray.count)
+            homeView?.secondPoint.text = String(format: "%02d", OthelloData.secondArray.count)
+
         }
     }
 

@@ -9,11 +9,14 @@
 import Foundation
 
 import UIKit
+import SVGKit
  
 class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var initiative: UILabel!
-    
+    @IBOutlet weak var secondPoint: UILabel!
+    @IBOutlet weak var initiative: UIImageView!
+    @IBOutlet weak var firstPoint: UILabel!
+
     var dataSource:OthelloBoardDataSource = OthelloBoardDataSource()
     var delegate:OthelloBoardDelegate = OthelloBoardDelegate()
     
@@ -34,6 +37,12 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
         let customLayout = OthelloBoardLayout()
         customLayout.delegate = self
         collectionView.collectionViewLayout = customLayout
+        
+        guard let svgImage = SVGKImage(named: "right_arrow") else {
+            return
+        }
+        svgImage.size = initiative.frame.size
+        initiative.image = svgImage.uiImage
     }
  
     func collectionView(_ collectionView: UICollectionView, heightForItemAt indexPath: IndexPath) -> CGFloat {

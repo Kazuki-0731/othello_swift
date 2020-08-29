@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440585C69B76CE0AA445F917 /* Pods_othelloSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9A0A7F2B2E490A7658BCE6 /* Pods_othelloSwift.framework */; };
+		78438B7C0AB341D5AF5F6A94 /* Pods_othelloSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7D79EA5559829862775D39 /* Pods_othelloSwiftTests.framework */; };
 		D21C813124D5725D006CCADB /* OthelloData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C813024D5725D006CCADB /* OthelloData.swift */; };
 		D21C813324D578DB006CCADB /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C813224D578DB006CCADB /* DebugLog.swift */; };
 		D21C813C24D6CAD8006CCADB /* OthelloBoardDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21C813B24D6CAD8006CCADB /* OthelloBoardDataSource.swift */; };
@@ -31,6 +33,14 @@
 		D2423EBB24CDB91D009DE58C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EBA24CDB91D009DE58C /* HomeViewController.swift */; };
 		D2423EC324CDB9C1009DE58C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EC224CDB9C1009DE58C /* SettingViewController.swift */; };
 		D2423ECA24CDD985009DE58C /* OthelloBoardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2423EC924CDD985009DE58C /* OthelloBoardLayout.swift */; };
+		D27782D324FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D27782CE24FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Bold.otf */; };
+		D27782D424FA291F00865E4C /* Rosario_Nocera-Koara_free_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D27782CF24FA291F00865E4C /* Rosario_Nocera-Koara_free_Bold.otf */; };
+		D27782D524FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D27782D024FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Regular.otf */; };
+		D27782D624FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D27782D124FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Light.otf */; };
+		D27782D724FA291F00865E4C /* Rosario_Nocera-Koara_free_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D27782D224FA291F00865E4C /* Rosario_Nocera-Koara_free_Light.otf */; };
+		D27782DC24FA57BD00865E4C /* right_arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = D27782D824FA459800865E4C /* right_arrow.svg */; };
+		D27782DE24FA5A6300865E4C /* left_arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = D27782DD24FA5A6300865E4C /* left_arrow.svg */; };
+		FB11F934790FE6C1883231FA /* Pods_othelloSwift_othelloSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19C5684CDB731BDCEFF2F25 /* Pods_othelloSwift_othelloSwiftUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +61,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22748B437F50DA5199F7DCE6 /* Pods-othelloSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-othelloSwiftTests/Pods-othelloSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A0F698D9ACE114C18856EA3 /* Pods-othelloSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-othelloSwiftTests/Pods-othelloSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		6F79D156BC6A105FCB752274 /* Pods-othelloSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwift.release.xcconfig"; path = "Target Support Files/Pods-othelloSwift/Pods-othelloSwift.release.xcconfig"; sourceTree = "<group>"; };
+		8BA3A0D704191FA10983DB98 /* Pods-othelloSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwift.debug.xcconfig"; path = "Target Support Files/Pods-othelloSwift/Pods-othelloSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		8C9A0A7F2B2E490A7658BCE6 /* Pods_othelloSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_othelloSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		934D56F0D3C794D0AF801F8C /* Pods-othelloSwift-othelloSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwift-othelloSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-othelloSwift-othelloSwiftUITests/Pods-othelloSwift-othelloSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AC51B94681058FC40D8FC760 /* Pods-othelloSwift-othelloSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-othelloSwift-othelloSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-othelloSwift-othelloSwiftUITests/Pods-othelloSwift-othelloSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D21C813024D5725D006CCADB /* OthelloData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloData.swift; sourceTree = "<group>"; };
 		D21C813224D578DB006CCADB /* DebugLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		D21C813B24D6CAD8006CCADB /* OthelloBoardDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloBoardDataSource.swift; sourceTree = "<group>"; };
@@ -81,6 +98,15 @@
 		D2423EBA24CDB91D009DE58C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D2423EC224CDB9C1009DE58C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D2423EC924CDD985009DE58C /* OthelloBoardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthelloBoardLayout.swift; sourceTree = "<group>"; };
+		D27782CE24FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rosario_Nocera-Koara_wild_free_Bold.otf"; sourceTree = "<group>"; };
+		D27782CF24FA291F00865E4C /* Rosario_Nocera-Koara_free_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rosario_Nocera-Koara_free_Bold.otf"; sourceTree = "<group>"; };
+		D27782D024FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rosario_Nocera-Koara_wild_free_Regular.otf"; sourceTree = "<group>"; };
+		D27782D124FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rosario_Nocera-Koara_wild_free_Light.otf"; sourceTree = "<group>"; };
+		D27782D224FA291F00865E4C /* Rosario_Nocera-Koara_free_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rosario_Nocera-Koara_free_Light.otf"; sourceTree = "<group>"; };
+		D27782D824FA459800865E4C /* right_arrow.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = right_arrow.svg; sourceTree = "<group>"; };
+		D27782DD24FA5A6300865E4C /* left_arrow.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = left_arrow.svg; sourceTree = "<group>"; };
+		F19C5684CDB731BDCEFF2F25 /* Pods_othelloSwift_othelloSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_othelloSwift_othelloSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB7D79EA5559829862775D39 /* Pods_othelloSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_othelloSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440585C69B76CE0AA445F917 /* Pods_othelloSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78438B7C0AB341D5AF5F6A94 /* Pods_othelloSwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,12 +130,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB11F934790FE6C1883231FA /* Pods_othelloSwift_othelloSwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C97F24BB5A0486AC1AD4CF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C9A0A7F2B2E490A7658BCE6 /* Pods_othelloSwift.framework */,
+				F19C5684CDB731BDCEFF2F25 /* Pods_othelloSwift_othelloSwiftUITests.framework */,
+				FB7D79EA5559829862775D39 /* Pods_othelloSwiftTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D21C813424D690F2006CCADB /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +217,8 @@
 				D2423E9224CD94D8009DE58C /* othello_swiftTests */,
 				D2423E9D24CD94D8009DE58C /* othello_swiftUITests */,
 				D2423E7524CD94D6009DE58C /* Products */,
+				EF83A36B799015D8123CBACD /* Pods */,
+				0C97F24BB5A0486AC1AD4CF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +239,7 @@
 				D2423EB024CDB14E009DE58C /* View */,
 				D2423EAC24CDB069009DE58C /* Generic */,
 				D2423EAF24CDB100009DE58C /* Model */,
+				D27782CC24FA28E400865E4C /* Assets */,
 				D2423E8A24CD94D8009DE58C /* Info.plist */,
 				D2423E7F24CD94D6009DE58C /* Main.storyboard */,
 				D2423E8524CD94D8009DE58C /* Assets.xcassets */,
@@ -304,6 +346,49 @@
 			path = Front;
 			sourceTree = "<group>";
 		};
+		D27782CC24FA28E400865E4C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D27782DA24FA45A700865E4C /* images */,
+				D27782CD24FA28EF00865E4C /* Font */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D27782CD24FA28EF00865E4C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D27782CF24FA291F00865E4C /* Rosario_Nocera-Koara_free_Bold.otf */,
+				D27782D224FA291F00865E4C /* Rosario_Nocera-Koara_free_Light.otf */,
+				D27782CE24FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Bold.otf */,
+				D27782D124FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Light.otf */,
+				D27782D024FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Regular.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		D27782DA24FA45A700865E4C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D27782DD24FA5A6300865E4C /* left_arrow.svg */,
+				D27782D824FA459800865E4C /* right_arrow.svg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		EF83A36B799015D8123CBACD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BA3A0D704191FA10983DB98 /* Pods-othelloSwift.debug.xcconfig */,
+				6F79D156BC6A105FCB752274 /* Pods-othelloSwift.release.xcconfig */,
+				AC51B94681058FC40D8FC760 /* Pods-othelloSwift-othelloSwiftUITests.debug.xcconfig */,
+				934D56F0D3C794D0AF801F8C /* Pods-othelloSwift-othelloSwiftUITests.release.xcconfig */,
+				22748B437F50DA5199F7DCE6 /* Pods-othelloSwiftTests.debug.xcconfig */,
+				3A0F698D9ACE114C18856EA3 /* Pods-othelloSwiftTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,9 +396,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2423EA324CD94D8009DE58C /* Build configuration list for PBXNativeTarget "othelloSwift" */;
 			buildPhases = (
+				4E20A3C8E03D222722B3F93F /* [CP] Check Pods Manifest.lock */,
 				D2423E7024CD94D6009DE58C /* Sources */,
 				D2423E7124CD94D6009DE58C /* Frameworks */,
 				D2423E7224CD94D6009DE58C /* Resources */,
+				AED46C4C52AB28CC69904086 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -328,6 +415,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2423EA624CD94D8009DE58C /* Build configuration list for PBXNativeTarget "othelloSwiftTests" */;
 			buildPhases = (
+				562C8DE5C2DCA8934E714D57 /* [CP] Check Pods Manifest.lock */,
 				D2423E8B24CD94D8009DE58C /* Sources */,
 				D2423E8C24CD94D8009DE58C /* Frameworks */,
 				D2423E8D24CD94D8009DE58C /* Resources */,
@@ -346,9 +434,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2423EA924CD94D8009DE58C /* Build configuration list for PBXNativeTarget "othelloSwiftUITests" */;
 			buildPhases = (
+				00AE8EDB460911213BD3DD16 /* [CP] Check Pods Manifest.lock */,
 				D2423E9624CD94D8009DE58C /* Sources */,
 				D2423E9724CD94D8009DE58C /* Frameworks */,
 				D2423E9824CD94D8009DE58C /* Resources */,
+				9B3626D8EEA17CE29A3CD161 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,10 +498,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27782DE24FA5A6300865E4C /* left_arrow.svg in Resources */,
+				D27782DC24FA57BD00865E4C /* right_arrow.svg in Resources */,
+				D27782D424FA291F00865E4C /* Rosario_Nocera-Koara_free_Bold.otf in Resources */,
 				D2423E8924CD94D8009DE58C /* LaunchScreen.storyboard in Resources */,
+				D27782D724FA291F00865E4C /* Rosario_Nocera-Koara_free_Light.otf in Resources */,
 				D2423E8624CD94D8009DE58C /* Assets.xcassets in Resources */,
+				D27782D324FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Bold.otf in Resources */,
 				D21C814424D700F4006CCADB /* CollectionViewCell.xib in Resources */,
+				D27782D624FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Light.otf in Resources */,
 				D2423E8124CD94D6009DE58C /* Main.storyboard in Resources */,
+				D27782D524FA291F00865E4C /* Rosario_Nocera-Koara_wild_free_Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +527,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00AE8EDB460911213BD3DD16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-othelloSwift-othelloSwiftUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E20A3C8E03D222722B3F93F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-othelloSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		562C8DE5C2DCA8934E714D57 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-othelloSwiftTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B3626D8EEA17CE29A3CD161 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-othelloSwift-othelloSwiftUITests/Pods-othelloSwift-othelloSwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-othelloSwift-othelloSwiftUITests/Pods-othelloSwift-othelloSwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-othelloSwift-othelloSwiftUITests/Pods-othelloSwift-othelloSwiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AED46C4C52AB28CC69904086 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-othelloSwift/Pods-othelloSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-othelloSwift/Pods-othelloSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-othelloSwift/Pods-othelloSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2423E7024CD94D6009DE58C /* Sources */ = {
@@ -624,6 +824,7 @@
 		};
 		D2423EA424CD94D8009DE58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BA3A0D704191FA10983DB98 /* Pods-othelloSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -644,6 +845,7 @@
 		};
 		D2423EA524CD94D8009DE58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F79D156BC6A105FCB752274 /* Pods-othelloSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -663,6 +865,7 @@
 		};
 		D2423EA724CD94D8009DE58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22748B437F50DA5199F7DCE6 /* Pods-othelloSwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -685,6 +888,7 @@
 		};
 		D2423EA824CD94D8009DE58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A0F698D9ACE114C18856EA3 /* Pods-othelloSwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -707,6 +911,7 @@
 		};
 		D2423EAA24CD94D8009DE58C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC51B94681058FC40D8FC760 /* Pods-othelloSwift-othelloSwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -727,6 +932,7 @@
 		};
 		D2423EAB24CD94D8009DE58C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 934D56F0D3C794D0AF801F8C /* Pods-othelloSwift-othelloSwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

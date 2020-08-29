@@ -32,89 +32,107 @@ import Foundation
 /// 東:+1
 ///
 class OthelloLogic : OthelloProtocol{
+    // 方位配列
+    static var directionArray: [Azimuth] = []
+    // 探索するオセロの位置
+    static var searchIndex: Int!
+    // 隣に相手があるのか
+    var foundEnemy: Bool!
+    // 直線状に自分の陣地があるのか
+    var notFoundMe: Bool!
+
+    init() {
+        OthelloLogic.searchIndex = 0
+    }
+
     // 配置できる場所を返す
-    static func allocable(cell:CollectionViewCell, current: Int) -> [Azimuth] {
+    func allocable(cell:CollectionViewCell, current: Int) -> [Azimuth] {
         // 緑の箇所であるのか？
         if(cell.highlightView.backgroundColor == .green){
-            var directionArray: [Azimuth] = []
+            OthelloLogic.directionArray = []
             //上下左右左上右上左下右下ですでにオセロが置いてあるのか
             for direction in Azimuth.allCases {
-                // 現在のオセロの位置
-                var searchIndex = current
                 // 隣に相手があるのか
-                var foundEnemy = false
+                foundEnemy = false
                 // 直線状に自分の陣地があるのか
-                var notFoundMe = true
-                searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
+                notFoundMe = true
+                // 探索するオセロの位置
+                OthelloLogic.searchIndex = current
+                OthelloLogic.searchIndex = OthelloLogic.searchIndex + OthelloLogic.searchOthello(direction: direction)
                 if(OthelloData.isFirst){
                     // その方角に相手のマスがある
-                    if(OthelloData.secondArray.contains(searchIndex)){
-                        foundEnemy = true
-                    }
+                    foundEnemy = OthelloData.secondArray.contains(OthelloLogic.searchIndex)
                 } else {
                     // その方角に相手のマスがある
-                    if(OthelloData.firstArray.contains(searchIndex)){
-                        foundEnemy = true
-                    }
+                    foundEnemy = OthelloData.firstArray.contains(OthelloLogic.searchIndex)
                 }
                 // 自分の陣地まで
                 while(foundEnemy && notFoundMe){
                     if(OthelloData.isFirst){
-                        // その方角に相手のマスがある
-                        if(OthelloData.secondArray.contains(searchIndex)){
-                            var loop = current
-                            // その直線状を自分の陣地があるまで探索
-                            while(true) {
-                                loop = loop + OthelloLogic.searchOthello(direction: direction)
-                                // 自分の陣地がある
-                                if OthelloData.firstArray.contains(loop) {
-                                    directionArray.append(direction)
-                                    foundEnemy = false
-                                    notFoundMe = false
-                                    break
-                                }
-                                // 端まで行ったらbreak
-                                if (OthelloInital.wallEdge.contains(loop)){
-                                    notFoundMe = false
-                                    break
-                                }
-                            }
-                        }
+                        // その方角に先攻のマスがある
+                        is_there_a_first_strikes_trout_in_that_direction(direction: direction, current: current)
                     } else {
-                        // その方角に相手のマスがある
-                        if(OthelloData.firstArray.contains(searchIndex)){
-                            var loop = current
-                            // その直線状を調べる
-                            while(true) {
-                                loop = loop + OthelloLogic.searchOthello(direction: direction)
-                                // 自分の陣地がある
-                                if OthelloData.secondArray.contains(loop) {
-                                    directionArray.append(direction)
-                                    notFoundMe = false
-                                    break
-                                }
-                                // 端まで行ったらbreak
-                                if (OthelloInital.wallEdge.contains(loop)){
-                                    notFoundMe = false
-                                    break
-                                }
-                            }
-                        }
+                        // その方角に後攻のマスがある
+                        is_there_a_second_strikes_trout_in_that_direction(direction: direction, current: current)
                     }
                     // 壁まで行ったらbreak
-                    if(OthelloInital.wallEdge.contains(searchIndex)){
-                        break
-                    } else if (searchIndex < 0 || searchIndex > 99){
+                    if(OthelloInital.wallEdge.contains(OthelloLogic.searchIndex)){
                         break
                     }
-                    searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
+                    OthelloLogic.searchIndex = OthelloLogic.searchIndex + OthelloLogic.searchOthello(direction: direction)
                 }
             }
-            return directionArray
+            return OthelloLogic.directionArray
         }
         return []
     }
     
+    // その方角に先攻のマスがある
+    func is_there_a_first_strikes_trout_in_that_direction(direction: Azimuth, current: Int){
+        if(OthelloData.secondArray.contains(OthelloLogic.searchIndex)){
+            var loop = current
+            // その直線状を自分の陣地があるまで探索
+            while(true) {
+                loop = loop + OthelloLogic.searchOthello(direction: direction)
+                // 自分の陣地がある
+                if OthelloData.firstArray.contains(loop) {
+                    OthelloLogic.directionArray.append(direction)
+                    foundEnemy = false
+                    notFoundMe = false
+                    break
+                }
+                // 端まで行ったらbreak
+                if (OthelloInital.wallEdge.contains(loop)){
+                    notFoundMe = false
+                    break
+                }
+            }
+        }
+    }
+
+    // その方角に後攻のマスがある
+    func is_there_a_second_strikes_trout_in_that_direction(direction: Azimuth, current: Int){
+        if(OthelloData.firstArray.contains(OthelloLogic.searchIndex)){
+            var loop = current
+            // その直線状を調べる
+            while(true) {
+                loop = loop + OthelloLogic.searchOthello(direction: direction)
+                // 自分の陣地がある
+                if OthelloData.secondArray.contains(loop) {
+                    OthelloLogic.directionArray.append(direction)
+                    foundEnemy = false
+                    notFoundMe = false
+                    break
+                }
+                // 端まで行ったらbreak
+                if (OthelloInital.wallEdge.contains(loop)){
+                    notFoundMe = false
+                    break
+                }
+            }
+        }
+    }
+
     /// オセロ配置
     /// 00 |  01 02 03 04 05 06 07 08 |  09
     /// ---------------------------------
