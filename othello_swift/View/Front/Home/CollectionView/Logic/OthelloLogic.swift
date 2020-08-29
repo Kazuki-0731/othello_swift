@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// オセロ配置
 /// 00 | 01 02 03 04 05 06 07 08 | 09
@@ -34,15 +35,12 @@ import Foundation
 class OthelloLogic : OthelloProtocol{
     // 方位配列
     static var directionArray: [Azimuth] = []
-    // 探索するオセロの位置
-    static var searchIndex: Int!
     // 隣に相手があるのか
     var foundEnemy: Bool!
     // 直線状に自分の陣地があるのか
     var notFoundMe: Bool!
 
     init() {
-        OthelloLogic.searchIndex = 0
     }
 
     // 配置できる場所を返す
@@ -57,29 +55,29 @@ class OthelloLogic : OthelloProtocol{
                 // 直線状に自分の陣地があるのか
                 notFoundMe = true
                 // 探索するオセロの位置
-                OthelloLogic.searchIndex = current
-                OthelloLogic.searchIndex = OthelloLogic.searchIndex + OthelloLogic.searchOthello(direction: direction)
+                var searchIndex = current
+                searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
                 if(OthelloData.isFirst){
                     // その方角に相手のマスがある
-                    foundEnemy = OthelloData.secondArray.contains(OthelloLogic.searchIndex)
+                    foundEnemy = OthelloData.secondArray.contains(searchIndex)
                 } else {
                     // その方角に相手のマスがある
-                    foundEnemy = OthelloData.firstArray.contains(OthelloLogic.searchIndex)
+                    foundEnemy = OthelloData.firstArray.contains(searchIndex)
                 }
                 // 自分の陣地まで
                 while(foundEnemy && notFoundMe){
                     if(OthelloData.isFirst){
                         // その方角に先攻のマスがある
-                        is_there_a_first_strikes_trout_in_that_direction(direction: direction, current: current)
+                        is_there_a_first_strikes_trout_in_that_direction(direction: direction, current: current, searchIndex: searchIndex)
                     } else {
                         // その方角に後攻のマスがある
-                        is_there_a_second_strikes_trout_in_that_direction(direction: direction, current: current)
+                        is_there_a_second_strikes_trout_in_that_direction(direction: direction, current: current, searchIndex: searchIndex)
                     }
                     // 壁まで行ったらbreak
-                    if(OthelloInital.wallEdge.contains(OthelloLogic.searchIndex)){
+                    if(OthelloInital.wallEdge.contains(searchIndex)){
                         break
                     }
-                    OthelloLogic.searchIndex = OthelloLogic.searchIndex + OthelloLogic.searchOthello(direction: direction)
+                    searchIndex = searchIndex + OthelloLogic.searchOthello(direction: direction)
                 }
             }
             return OthelloLogic.directionArray
@@ -88,8 +86,8 @@ class OthelloLogic : OthelloProtocol{
     }
     
     // その方角に先攻のマスがある
-    func is_there_a_first_strikes_trout_in_that_direction(direction: Azimuth, current: Int){
-        if(OthelloData.secondArray.contains(OthelloLogic.searchIndex)){
+    func is_there_a_first_strikes_trout_in_that_direction(direction: Azimuth, current: Int, searchIndex: Int){
+        if(OthelloData.secondArray.contains(searchIndex)){
             var loop = current
             // その直線状を自分の陣地があるまで探索
             while(true) {
@@ -111,8 +109,8 @@ class OthelloLogic : OthelloProtocol{
     }
 
     // その方角に後攻のマスがある
-    func is_there_a_second_strikes_trout_in_that_direction(direction: Azimuth, current: Int){
-        if(OthelloData.firstArray.contains(OthelloLogic.searchIndex)){
+    func is_there_a_second_strikes_trout_in_that_direction(direction: Azimuth, current: Int, searchIndex: Int){
+        if(OthelloData.firstArray.contains(searchIndex)){
             var loop = current
             // その直線状を調べる
             while(true) {

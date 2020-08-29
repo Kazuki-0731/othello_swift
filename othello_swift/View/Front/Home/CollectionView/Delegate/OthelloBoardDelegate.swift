@@ -15,6 +15,8 @@ import SVGKit
 class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     weak var homeView: HomeViewController?
     
+    var currentCell: CollectionViewCell!
+    
     override init() {
         super.init()
     }
@@ -49,9 +51,8 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     /// Cellが選択された時
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         /// TODO:ここをオセロの先攻後攻で白黒切り替えるようにする
-        
-        var currentCell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        /// 上下左右左上右上左下右下で挟めるのか？8回検索(func allocable())
+        currentCell = (collectionView.cellForItem(at: indexPath) as! CollectionViewCell)
+        /// 挟めるのか？8回検索
         let azimuths = OthelloLogic.init().allocable(cell:currentCell, current: indexPath.row)
         /// 隣に相手のオセロがある
         if(azimuths.count != 0){
@@ -66,69 +67,35 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                     if(OthelloData.isFirst){
                         //その方向に自分の陣地がある
                         if(OthelloData.firstArray.contains(searchIndex)){
-                            var loop = indexPath.row
                             // その方向すべてを自分の陣地にする
-                            while(loop != searchIndex) {
-                                // 色反転
-                                currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
-                                currentCell.highlightView.backgroundColor = .black
-                                // 自分の陣地更新
-                                if !OthelloData.firstArray.contains(loop) {
-                                    OthelloData.firstArray.append(loop)
-                                }
-                                // 他人陣地を更新
-                                if OthelloData.secondArray.contains(loop) {
-                                    OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
-                                }
-                                loop = loop + OthelloLogic.searchOthello(direction: direction)
-                            }
-                            // 自分の陣地更新
-                            if !OthelloData.firstArray.contains(loop) {
-                                OthelloData.firstArray.append(loop)
-                            }
-                            // 他人陣地を更新
-                            if OthelloData.secondArray.contains(loop) {
-                                OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
-                            }
+                            makeThatDirectionAllFirstStrikesTerritory(
+                                collectionView: collectionView,
+                                direction: direction,
+                                currentPath: indexPath.row,
+                                searchIndex: searchIndex
+                            )
                             break
                         }
                     } else {
                         //その方向に後攻の人の陣地がある
                         if(OthelloData.secondArray.contains(searchIndex)){
-                            var loop = indexPath.row
                             // その方向すべてを自分の陣地にする
-                            while(loop != searchIndex) {
-                                // 色反転
-                                currentCell = collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell
-                                currentCell.highlightView.backgroundColor = .white
-                                // 自分の陣地更新
-                                if !OthelloData.secondArray.contains(loop) {
-                                    OthelloData.secondArray.append(loop)
-                                }
-                                // 他人陣地を更新
-                                if OthelloData.firstArray.contains(loop) {
-                                    OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
-                                }
-                                loop = loop + OthelloLogic.searchOthello(direction: direction)
-                            }
-                            // 自分の陣地更新
-                            if !OthelloData.secondArray.contains(loop) {
-                                OthelloData.secondArray.append(loop)
-                            }
-                            // 他人陣地を更新
-                            if OthelloData.firstArray.contains(loop) {
-                                OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
-                            }
+                            makeThatDirectionAllSecondStrikesTerritory(
+                                collectionView: collectionView,
+                                direction: direction,
+                                currentPath: indexPath.row,
+                                searchIndex: searchIndex
+                            )
                             break
                         }
                     }
-                    print("searchIndex: \(searchIndex)")
                     // 壁まで行ったらbreak
                     if(OthelloInital.wallEdge.contains(searchIndex)){
                         break
                     }
                 }
             }
+            
             //　先攻後攻を交代
             OthelloData.reverseTurn()
             let arrow = OthelloData.isFirst ? "right_arrow" : "left_arrow"
@@ -141,7 +108,60 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
             // 点数表示
             homeView?.firstPoint.text = String(format: "%02d", OthelloData.firstArray.count)
             homeView?.secondPoint.text = String(format: "%02d", OthelloData.secondArray.count)
+        }
+    }
 
+    /// その方向をすべて先攻の領土にする
+    func makeThatDirectionAllFirstStrikesTerritory(collectionView: UICollectionView, direction: Azimuth, currentPath: Int, searchIndex: Int) {
+        var loop = currentPath
+        while(loop != searchIndex) {
+            // 色反転
+            currentCell = (collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell)
+            currentCell.highlightView.backgroundColor = .black
+            // 自分の陣地更新
+            if !OthelloData.firstArray.contains(loop) {
+                OthelloData.firstArray.append(loop)
+            }
+            // 他人陣地を更新
+            if OthelloData.secondArray.contains(loop) {
+                OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
+            }
+            loop = loop + OthelloLogic.searchOthello(direction: direction)
+        }
+        // 自分の陣地更新
+        if !OthelloData.firstArray.contains(loop) {
+            OthelloData.firstArray.append(loop)
+        }
+        // 他人陣地を更新
+        if OthelloData.secondArray.contains(loop) {
+            OthelloData.secondArray.remove(at: OthelloData.secondArray.firstIndex(of: loop)!)
+        }
+    }
+
+    /// その方向をすべて後攻攻撃の領土にする
+    func makeThatDirectionAllSecondStrikesTerritory(collectionView: UICollectionView, direction: Azimuth, currentPath: Int, searchIndex: Int) {
+        var loop = currentPath
+        while(loop != searchIndex) {
+            // 色反転
+            currentCell = (collectionView.cellForItem(at: IndexPath.init(row: loop, section: 0)) as! CollectionViewCell)
+            currentCell.highlightView.backgroundColor = .white
+            // 自分の陣地更新
+            if !OthelloData.secondArray.contains(loop) {
+                OthelloData.secondArray.append(loop)
+            }
+            // 他人陣地を更新
+            if OthelloData.firstArray.contains(loop) {
+                OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
+            }
+            loop = loop + OthelloLogic.searchOthello(direction: direction)
+        }
+        // 自分の陣地更新
+        if !OthelloData.secondArray.contains(loop) {
+            OthelloData.secondArray.append(loop)
+        }
+        // 他人陣地を更新
+        if OthelloData.firstArray.contains(loop) {
+            OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
         }
     }
 
