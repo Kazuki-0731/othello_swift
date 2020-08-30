@@ -9,6 +9,8 @@
 import Foundation
 
 class OthelloData {
+    /// リセット用配列
+    static var initArray:[IndexPath] = [IndexPath]()
     ///Bool 先手後手の判断
     static var isFirst = true
     ///array 先手配列
@@ -23,11 +25,14 @@ class OthelloData {
     ///Bool ゲーム開始フラグ
     var isStart : Bool = true
 
-    static func reverseTurn(){
+    static func reverse(){
         OthelloData.isFirst = !OthelloData.isFirst
     }
     
     static let shared = OthelloData()
     private init() {
+        for loop in 0..<100{
+            OthelloData.initArray.append(IndexPath(row: loop, section: 0))
+        }
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SVGKit
 
 /// オセロ配置
 /// 00 | 01 02 03 04 05 06 07 08 | 09
@@ -132,16 +133,18 @@ class OthelloLogic : OthelloProtocol{
     }
 
     /// 探索可能領域をグレーに
-    func battlableAreaDisplay(collectionView: UICollectionView){
+    func battlableAreaDisplay(collectionView: UICollectionView) -> Bool{
+        var canNotPutCell = true
         for selectCount in 0..<100 {
             var currentCell = (collectionView.cellForItem(at: IndexPath(row: selectCount, section: 0)) as! CollectionViewCell)
             ///すでに置いてあるオセロは除く
-            if(!OthelloData.firstArray.contains(selectCount) && !OthelloData.secondArray.contains(selectCount)){
-                let selectableAzimuths = OthelloLogic.init().allocable(cell:currentCell, current: selectCount)
+            if(!OthelloInital.wallEdge.contains(selectCount) && !OthelloData.firstArray.contains(selectCount) && !OthelloData.secondArray.contains(selectCount)){
+                let selectableAzimuths = allocable(cell:currentCell, current: selectCount)
                 if(selectableAzimuths.count > 0){
                     /// 選択可能オセロをグレーに
                     currentCell = (collectionView.cellForItem(at: IndexPath.init(row: selectCount, section: 0)) as! CollectionViewCell)
                     currentCell.highlightView.backgroundColor = .gray
+                    canNotPutCell = false
                 } else {
                     /// 一度リセット
                     currentCell = (collectionView.cellForItem(at: IndexPath.init(row: selectCount, section: 0)) as! CollectionViewCell)
@@ -149,6 +152,26 @@ class OthelloLogic : OthelloProtocol{
                 }
             }
         }
+        return canNotPutCell
+    }
+    
+    // ターンを交代する
+    func reverseTurn(homeView: HomeViewController){
+        OthelloData.reverse()
+        let arrow = OthelloData.isFirst ? "right_arrow" : "left_arrow"
+        guard let svgImage = SVGKImage(named: arrow) else {
+            return
+        }
+        svgImage.size = homeView.initiative.frame.size
+        homeView.initiative.image = svgImage.uiImage
+    }
+
+    /// ゲームリセットする
+    func gameReset(homeView: HomeViewController){
+        OthelloData.firstArray = OthelloInital.blackArrangement
+        OthelloData.secondArray = OthelloInital.whiteArrangement
+        OthelloData.isFirst = true
+        homeView.collectionView.reloadItems(at: OthelloData.initArray)
     }
 
     /// オセロ配置

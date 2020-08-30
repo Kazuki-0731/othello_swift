@@ -13,7 +13,7 @@ import SVGKit
  *盤面をタッチされた時のイベントを受信するクラス
  */
 class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
-    weak var homeView: HomeViewController?
+    weak var homeView: HomeViewController!
     
     var currentCell: CollectionViewCell!
     
@@ -99,20 +99,34 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
             }
             
             /** 先攻後攻を交代 **/
-            OthelloData.reverseTurn()
+            OthelloData.reverse()
             let arrow = OthelloData.isFirst ? "right_arrow" : "left_arrow"
             guard let svgImage = SVGKImage(named: arrow) else {
                 return
             }
-            svgImage.size = homeView!.initiative.frame.size
+            svgImage.size = homeView.initiative.frame.size
             homeView?.initiative.image = svgImage.uiImage
 
             // 点数表示
-            homeView?.firstPoint.text = String(format: "%02d", OthelloData.firstArray.count)
-            homeView?.secondPoint.text = String(format: "%02d", OthelloData.secondArray.count)
+            homeView.firstPoint.text = String(format: "%02d", OthelloData.firstArray.count)
+            homeView.secondPoint.text = String(format: "%02d", OthelloData.secondArray.count)
 
             /// 探索可能領域をグレーに
-            logic.battlableAreaDisplay(collectionView: collectionView)
+            if(logic.battlableAreaDisplay(collectionView: collectionView)){
+                if(OthelloData.firstArray.count == 0){
+                    alert(title: "後攻の人の勝ち！", message: "ゲームリセットしますか？", actions: GameActions.RESET)
+                } else if (OthelloData.secondArray.count == 0){
+                    alert(title: "先攻の人の勝ち！", message: "ゲームリセットしますか？", actions: GameActions.RESET)
+                } else if(OthelloData.firstArray.count + OthelloData.secondArray.count == 64){
+                    if(OthelloData.firstArray.count > OthelloData.secondArray.count){
+                        alert(title: "先攻の人の勝ち！", message: "ゲームリセットしますか？", actions: GameActions.RESET)
+                    } else {
+                        alert(title: "後攻の人の勝ち！", message: "ゲームリセットしますか？", actions: GameActions.RESET)
+                    }
+                } else {
+                    alert(title: "オセロが置けません", message: "パスしますか？", actions: GameActions.PASS)
+                }
+            }
         }
     }
 
@@ -168,6 +182,35 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         if OthelloData.firstArray.contains(loop) {
             OthelloData.firstArray.remove(at: OthelloData.firstArray.firstIndex(of: loop)!)
         }
+    }
+    
+    /// アラート表示
+    func alert(title: String, message: String, actions: GameActions){
+        let alertController: UIAlertController =
+                    UIAlertController(title: title,
+                              message: message,
+                              preferredStyle: .alert)
+         
+        // OK のaction
+        let defaultAction:UIAlertAction =
+                    UIAlertAction(title: "OK",
+                          style: .default,
+                          handler:{
+                            (action:UIAlertAction!) -> Void in
+                                switch actions {
+                                    case .RESET:
+                                        // ゲームリセット
+                                        self.logic.gameReset(homeView: self.homeView)
+                                        break
+                                    case .PASS:
+                                        // 強制的に交代
+                                        self.logic.reverseTurn(homeView: self.homeView)
+                                        break
+                                }
+                          })
+        alertController.addAction(defaultAction)
+        // UIAlertControllerの起動
+        homeView.present(alertController, animated: true, completion: nil)
     }
 
     /// Cellの選択が解除された時

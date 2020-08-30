@@ -18,3 +18,8 @@ enum Azimuth : CaseIterable{
     case SOUTH
     case SOUTHEAST
 }
+
+enum GameActions {
+    case RESET
+    case PASS
+}

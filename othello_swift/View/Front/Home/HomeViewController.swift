@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
     @IBOutlet weak var secondPoint: UILabel!
     @IBOutlet weak var initiative: UIImageView!
     @IBOutlet weak var firstPoint: UILabel!
+//    @IBOutlet weak var resetButton: UIButton!
 
     var dataSource:OthelloBoardDataSource = OthelloBoardDataSource()
     var delegate:OthelloBoardDelegate = OthelloBoardDelegate()
@@ -43,6 +44,10 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
         }
         svgImage.size = initiative.frame.size
         initiative.image = svgImage.uiImage
+    }
+    
+    @IBAction func resetAction(){
+        OthelloLogic.init().gameReset(homeView: self)
     }
  
     func collectionView(_ collectionView: UICollectionView, heightForItemAt indexPath: IndexPath) -> CGFloat {
