@@ -46,7 +46,7 @@ class OthelloLogic : OthelloProtocol{
     // 配置できる場所を返す
     func allocable(cell:CollectionViewCell, current: Int) -> [Azimuth] {
         // 緑の箇所であるのか？
-        if(cell.highlightView.backgroundColor == .green){
+        if(cell.highlightView.backgroundColor == .green || cell.highlightView.backgroundColor == .gray){
             OthelloLogic.directionArray = []
             //上下左右左上右上左下右下ですでにオセロが置いてあるのか
             for direction in Azimuth.allCases {
@@ -126,6 +126,26 @@ class OthelloLogic : OthelloProtocol{
                 if (OthelloInital.wallEdge.contains(loop)){
                     notFoundMe = false
                     break
+                }
+            }
+        }
+    }
+
+    /// 探索可能領域をグレーに
+    func battlableAreaDisplay(collectionView: UICollectionView){
+        for selectCount in 0..<100 {
+            var currentCell = (collectionView.cellForItem(at: IndexPath(row: selectCount, section: 0)) as! CollectionViewCell)
+            ///すでに置いてあるオセロは除く
+            if(!OthelloData.firstArray.contains(selectCount) && !OthelloData.secondArray.contains(selectCount)){
+                let selectableAzimuths = OthelloLogic.init().allocable(cell:currentCell, current: selectCount)
+                if(selectableAzimuths.count > 0){
+                    /// 選択可能オセロをグレーに
+                    currentCell = (collectionView.cellForItem(at: IndexPath.init(row: selectCount, section: 0)) as! CollectionViewCell)
+                    currentCell.highlightView.backgroundColor = .gray
+                } else {
+                    /// 一度リセット
+                    currentCell = (collectionView.cellForItem(at: IndexPath.init(row: selectCount, section: 0)) as! CollectionViewCell)
+                    currentCell.highlightView.backgroundColor = .green
                 }
             }
         }

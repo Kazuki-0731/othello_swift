@@ -34,6 +34,7 @@ struct OthelloInital {
     /// 東:+1
     static let blackArrangement = [44, 55]
     static let whiteArrangement = [45, 54]
+    static let grayArrangment = [35, 46, 53, 64]
     /// 全方位検索用
     static let wallEdge = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ,19 ,20 ,29 ,30 ,39 ,40 ,49 ,50 ,59 ,60 ,69 ,70 ,79 ,80 ,89 ,90 ,91 ,92 ,93,94 ,95 ,96 ,97 ,98 ,99]
 

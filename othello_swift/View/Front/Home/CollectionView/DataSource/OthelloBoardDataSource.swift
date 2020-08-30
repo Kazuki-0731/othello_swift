@@ -62,6 +62,10 @@ class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
                 // 白盤面配置
                 cell.highlightView.backgroundColor = .white
                 OthelloData.secondArray = OthelloInital.whiteArrangement
+            } else if(OthelloInital.grayArrangment.contains(indexPath.row)){
+                // 灰色盤面配置
+                cell.highlightView.backgroundColor = .gray
+                OthelloData.secondArray = OthelloInital.whiteArrangement
             }
         }
         

@@ -15,6 +15,8 @@ class OthelloData {
     static var firstArray = [Int]()
     ///array 後手配列
     static var secondArray = [Int]()
+    /// 選択可能配列
+    static var selectable = [Int]()
     ///int ターン数
     ///time タイマー
     ///int 点数の重さ

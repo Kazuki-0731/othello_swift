@@ -17,6 +17,8 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
     
     var currentCell: CollectionViewCell!
     
+    var logic = OthelloLogic.init()
+    
     override init() {
         super.init()
     }
@@ -53,7 +55,7 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
         /// TODO:ここをオセロの先攻後攻で白黒切り替えるようにする
         currentCell = (collectionView.cellForItem(at: indexPath) as! CollectionViewCell)
         /// 挟めるのか？8回検索
-        let azimuths = OthelloLogic.init().allocable(cell:currentCell, current: indexPath.row)
+        let azimuths = logic.allocable(cell:currentCell, current: indexPath.row)
         /// 隣に相手のオセロがある
         if(azimuths.count != 0){
             // 置ける方向分検索
@@ -96,7 +98,7 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
                 }
             }
             
-            //　先攻後攻を交代
+            /** 先攻後攻を交代 **/
             OthelloData.reverseTurn()
             let arrow = OthelloData.isFirst ? "right_arrow" : "left_arrow"
             guard let svgImage = SVGKImage(named: arrow) else {
@@ -108,6 +110,9 @@ class OthelloBoardDelegate: NSObject, UICollectionViewDelegate {
             // 点数表示
             homeView?.firstPoint.text = String(format: "%02d", OthelloData.firstArray.count)
             homeView?.secondPoint.text = String(format: "%02d", OthelloData.secondArray.count)
+
+            /// 探索可能領域をグレーに
+            logic.battlableAreaDisplay(collectionView: collectionView)
         }
     }
 
