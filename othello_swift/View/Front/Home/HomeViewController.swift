@@ -16,7 +16,6 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
     @IBOutlet weak var secondPoint: UILabel!
     @IBOutlet weak var initiative: UIImageView!
     @IBOutlet weak var firstPoint: UILabel!
-//    @IBOutlet weak var resetButton: UIButton!
 
     var dataSource:OthelloBoardDataSource = OthelloBoardDataSource()
     var delegate:OthelloBoardDelegate = OthelloBoardDelegate()
@@ -38,6 +37,8 @@ class HomeViewController: UIViewController, OthelloBoardLayoutDelegate {
         let customLayout = OthelloBoardLayout()
         customLayout.delegate = self
         collectionView.collectionViewLayout = customLayout
+        
+        self.collectionView.isScrollEnabled = false
         
         guard let svgImage = SVGKImage(named: "right_arrow") else {
             return

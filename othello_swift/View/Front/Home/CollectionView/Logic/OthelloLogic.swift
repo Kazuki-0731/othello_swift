@@ -171,7 +171,7 @@ class OthelloLogic : OthelloProtocol{
         OthelloData.firstArray = OthelloInital.blackArrangement
         OthelloData.secondArray = OthelloInital.whiteArrangement
         OthelloData.isFirst = true
-        homeView.collectionView.reloadItems(at: OthelloData.initArray)
+        homeView.collectionView.reloadItems(at: OthelloData.boardCell)
     }
 
     /// オセロ配置

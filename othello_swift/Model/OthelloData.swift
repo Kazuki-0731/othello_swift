@@ -10,7 +10,7 @@ import Foundation
 
 class OthelloData {
     /// リセット用配列
-    static var initArray:[IndexPath] = [IndexPath]()
+    static var boardCell:[IndexPath] = [IndexPath]()
     ///Bool 先手後手の判断
     static var isFirst = true
     ///array 先手配列
@@ -32,7 +32,9 @@ class OthelloData {
     static let shared = OthelloData()
     private init() {
         for loop in 0..<100{
-            OthelloData.initArray.append(IndexPath(row: loop, section: 0))
+            if(!OthelloInital.wallEdge.contains(loop)){
+                OthelloData.boardCell.append(IndexPath(row: loop, section: 0))
+            }
         }
     }
 }

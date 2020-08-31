@@ -50,7 +50,12 @@ class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        cell.highlightView.backgroundColor = .green
+        // 端は見えなくしている
+        if(OthelloInital.wallEdge.contains(indexPath.row)){
+            cell.isHidden = true
+        } else {
+            cell.highlightView.backgroundColor = .green
+        }
 
         /// 初期盤面
         if(OthelloData.shared.isStart){
@@ -67,11 +72,6 @@ class OthelloBoardDataSource: NSObject, UICollectionViewDataSource {
                 cell.highlightView.backgroundColor = .gray
                 OthelloData.secondArray = OthelloInital.whiteArrangement
             }
-        }
-        
-        // 端は見えなくしている
-        if(OthelloInital.wallEdge.contains(indexPath.row)){
-            cell.isHidden = true
         }
         
         return cell
